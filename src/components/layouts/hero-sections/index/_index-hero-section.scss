@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+  .mobile-header {
+    background-image: url("/img/bg-gradient.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.desktop-header {
+  background-image: url("/img/bg-gradient.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

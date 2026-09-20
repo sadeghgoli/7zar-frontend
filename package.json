@@ -1,0 +1,25 @@
+{
+  "name": "galeri-zarin-store",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port=3002",
+    "build": "next build",
+    "start": "next start --port=3002",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "motion": "^12.43.0",
+    "next": "15.5.9",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-hot-toast": "^2.6.1",
+    "react-icons": "^5.7.0",
+    "sass": "^1.104.1"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

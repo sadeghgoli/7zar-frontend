@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "base/fonts";
+
+html {
+  direction: rtl;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 antialiased;
+  font-family: Dana, system-ui, sans-serif;
+}
