@@ -12,9 +12,11 @@ npm run dev
 
 مرورگر: [http://localhost:3002](http://localhost:3002)
 
-## استقرار در ریپازیتوری
+## استقرار (Coolify / Docker)
 
-این پوشه را می‌توانید در کنار `frontend` commit کنید (monorepo) یا ریپوی جدا بسازید. هیچ `file:` یا import از `frontend` وجود ندارد.
+در ریشهٔ ریپو فایل **`Dockerfile`** وجود دارد. Coolify باید **Build Pack = Dockerfile** و مسیر Dockerfile = `/Dockerfile` باشد.
+
+پس از push، دوباره Deploy کنید.
 
 ## صفحات
 
