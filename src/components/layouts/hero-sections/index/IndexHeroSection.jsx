@@ -1,112 +1,134 @@
-"use client";
-
-import "./_index-hero-section.scss";
+import Image from "next/image";
 import Link from "next/link";
-import Title from "@/components/elements/title/Title";
+import {
+  FiArrowLeft,
+  FiCheckCircle,
+  FiPhone,
+  FiShield,
+  FiTruck,
+} from "react-icons/fi";
 import Container from "@/components/elements/container/Container";
-import { motion } from "motion/react";
+import { siteConfig } from "@/data/catalog";
 
-const IndexHeroSection = () => {
+const highlights = [
+  "طلای ۱۸ عیار با گواهی اصالت",
+  "ارسال بیمه‌شده به سراسر کشور",
+  "بسته‌بندی کادویی رایگان",
+];
+
+export default function IndexHeroSection() {
   return (
-    <>
-      <div className="desktop-header relative hidden min-h-[800px] flex-col justify-center lg:flex">
-        <Container>
-          <div className="relative grid min-h-[720px] grid-cols-2">
-            <div className="relative z-10 flex flex-col justify-center">
-              <Title type="h1" classes="mb-5 text-5xl font-bold text-white">
-                زیورآلات طلا
-                <br />
-                برای هر لحظهٔ خاص
-              </Title>
-              <p className="my-4 mt-3 max-w-xl text-2xl text-white">
-                گردنبند، دستبند و ست‌های ۱۸ عیار با ضمانت اصالت — انتخاب و سفارش آنلاین از سون زر.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="#collections"
-                  className="rounded-xl bg-[#b47d27] px-6 py-3 text-sm font-bold text-white hover:bg-[#a06c1e]"
-                >
-                  مشاهده ویترین
-                </Link>
-                <Link
-                  href="/order"
-                  className="rounded-xl border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
-                >
-                  ثبت سفارش
-                </Link>
-              </div>
-            </div>
-
-            <div className="pointer-events-none absolute bottom-[550px] left-[200px]">
-              <div className="flex justify-center">
-                <motion.div
-                  transition={{
-                    repeat: Infinity,
-                    duration: 5,
-                    repeatType: "reverse",
-                  }}
-                  animate={{
-                    x: 1,
-                    y: [50, 150],
-                  }}
-                >
-                  <img src="/img/goldbar.png" width={200} alt="" />
-                </motion.div>
-              </div>
-            </div>
-            <img
-              src="/img/hand.png"
-              width={550}
-              className="pointer-events-none absolute bottom-0 left-0 z-[1] w-[550px] max-w-[55vw]"
-              alt=""
-            />
-          </div>
-        </Container>
+    <section className="relative overflow-hidden bg-stone-950 text-white">
+      <div className="absolute inset-0">
+        <Image
+          src="/img/site/hero-model.jpg"
+          alt="مدل زیورآلات طلای سون زر"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[65%_center] opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-stone-950 via-stone-950/80 to-stone-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-transparent to-stone-950/30" />
       </div>
 
-      <div className="mobile-header relative z-0 flex flex-col justify-center lg:hidden">
-        <div className="relative flex flex-col items-center justify-center p-3">
-          <div className="fixed inset-0 flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute -top-10 left-1/2 z-0 -translate-x-1/2 transform">
-                <motion.div
-                  transition={{
-                    repeat: Infinity,
-                    duration: 5,
-                    repeatType: "reverse",
-                  }}
-                  animate={{
-                    x: 1,
-                    y: [-60, 0],
-                  }}
-                >
-                  <img src="/img/goldbar.png" width={150} alt="" />
-                </motion.div>
-              </div>
-              <img src="/img/hand.png" width={400} className="relative" alt="" />
-            </div>
+      <Container classes="relative py-16 md:py-24 lg:py-28">
+        <div className="max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-[11px] font-medium text-amber-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+            کلکسیون پاییز ۱۴۰۵ · طرح‌های محدود
+          </span>
+
+          <h1 className="mt-5 text-3xl font-bold leading-[1.35] md:text-5xl md:leading-[1.3]">
+            درخششی که
+            <span className="gold-text"> ماندگار </span>
+            است
+          </h1>
+          <p className="mt-5 max-w-xl text-sm leading-8 text-stone-300 md:text-base md:leading-9">
+            گردنبند، دستبند، گوشواره و ست‌های طلای ۱۸ عیار؛ طراحی‌شده برای
+            لحظه‌های روزمره و روزهای خاص. با ضمانت اصالت و مشاوره تخصصی انتخاب
+            کنید.
+          </p>
+
+          <ul className="mt-6 space-y-2 text-xs text-stone-300 md:text-sm">
+            {highlights.map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <FiCheckCircle className="text-amber-400" aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/products"
+              className="flex items-center gap-2 rounded-xl bg-[#b47d27] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#a06c1e]"
+            >
+              مشاهده محصولات
+              <FiArrowLeft aria-hidden />
+            </Link>
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-amber-300 hover:text-amber-200"
+            >
+              <FiPhone aria-hidden />
+              مشاوره خرید
+            </a>
           </div>
 
-          <div className="relative z-20 mx-2 mb-3 mt-32 w-full rounded-2xl bg-black/20 p-3 text-center backdrop-blur-sm">
-            <Title type="h1" classes="mb-5 text-3xl font-bold text-white">
-              زیورآلات طلا برای هر لحظهٔ خاص
-            </Title>
-            <p className="my-4 mt-3 text-lg text-white/90">
-              مجموعهٔ گردنبند و زیورآلات ۱۸ عیار — سفارش آنلاین از سون زر.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href="#collections" className="rounded-xl bg-[#b47d27] px-5 py-2.5 text-sm font-bold text-white">
-                ویترین
-              </Link>
-              <Link href="/order" className="rounded-xl border border-white/40 px-5 py-2.5 text-sm text-white">
-                ثبت سفارش
-              </Link>
+          <div className="mt-10 grid max-w-lg grid-cols-3 gap-3 border-t border-white/10 pt-6 text-center">
+            <div>
+              <p className="text-xl font-bold text-amber-300 md:text-2xl">۱۸</p>
+              <p className="mt-1 text-[10px] text-stone-400 md:text-xs">عیار طلا</p>
+            </div>
+            <div>
+              <p className="text-xl font-bold text-amber-300 md:text-2xl">۲٬۴۰۰+</p>
+              <p className="mt-1 text-[10px] text-stone-400 md:text-xs">سفارش موفق</p>
+            </div>
+            <div>
+              <p className="text-xl font-bold text-amber-300 md:text-2xl">۷ روز</p>
+              <p className="mt-1 text-[10px] text-stone-400 md:text-xs">ضمانت بازگشت</p>
             </div>
           </div>
         </div>
-      </div>
-    </>
-  );
-};
+      </Container>
 
-export default IndexHeroSection;
+      <div className="absolute bottom-8 left-8 hidden w-44 overflow-hidden rounded-2xl border border-white/20 shadow-2xl lg:block">
+        <div className="relative aspect-square">
+          <Image
+            src="/img/site/hero-neck.jpg"
+            alt="گردنبند طلا روی مدل"
+            fill
+            sizes="180px"
+            className="object-cover"
+          />
+        </div>
+        <div className="flex items-center gap-2 bg-white/95 px-3 py-2 text-[10px] font-semibold text-stone-800">
+          <FiShield className="text-[#b47d27]" aria-hidden />
+          گواهی اصالت همراه سفارش
+        </div>
+      </div>
+
+      <div className="relative border-t border-white/10 bg-stone-900/80">
+        <Container classes="grid grid-cols-2 gap-4 py-4 text-[11px] text-stone-300 md:grid-cols-4 md:text-xs">
+          <span className="flex items-center justify-center gap-2">
+            <FiShield className="text-amber-400" aria-hidden />
+            ضمانت اصالت طلا
+          </span>
+          <span className="flex items-center justify-center gap-2">
+            <FiTruck className="text-amber-400" aria-hidden />
+            ارسال بیمه‌شده
+          </span>
+          <span className="flex items-center justify-center gap-2">
+            <FiPhone className="text-amber-400" aria-hidden />
+            پشتیبانی تلفنی
+          </span>
+          <span className="flex items-center justify-center gap-2">
+            <FiCheckCircle className="text-amber-400" aria-hidden />
+            بسته‌بندی کادویی
+          </span>
+        </Container>
+      </div>
+    </section>
+  );
+}

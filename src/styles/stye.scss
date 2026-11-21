@@ -6,9 +6,69 @@
 
 html {
   direction: rtl;
+  scroll-behavior: smooth;
 }
 
 body {
   @apply bg-stone-50 text-stone-900 antialiased;
   font-family: Dana, system-ui, sans-serif;
+}
+
+::selection {
+  background: #b47d27;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b47d27;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+.gold-text {
+  background: linear-gradient(120deg, #8a5e18, #d4a04f, #8a5e18);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(to right, rgba(120, 113, 108, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 113, 108, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
